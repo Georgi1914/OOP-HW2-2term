@@ -27,7 +27,7 @@ public class Soldier {
     void addModifier(Modifier modifier){
         //TODO after adding Modifier class
     }
-
+    //TODO after adding Modifier fix getters
     public int getCurrent_health() {
         return current_health;
     }
@@ -50,17 +50,11 @@ public class Soldier {
 
     @Override
     public String toString() {
-        return "Soldier{" +
-                "name='" + name + '\'' +
-                ", attack_type=" + attack_type +
-                ", current_health=" + current_health +
-                ", max_health=" + max_health +
-                ", attack_points=" + attack_points +
-                ", defense_melee=" + defense_melee +
-                ", defense_ranged=" + defense_ranged +
-                ", tags=" + tags +
-                ", modifiers=" + modifiers +
-                '}';
+        return name +
+                "   HP:" + current_health + "/" + max_health +
+                "   ATK:" + attack_points + //TODO add modifier attack
+                "   DEF:" + defense_melee + "/" + defense_ranged + //TODO add modifier defenses
+                "Modifiers:"; // TODO add modifier stats
     }
 }
 
