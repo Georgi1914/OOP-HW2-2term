@@ -1,59 +1,79 @@
 package Soldier;
 
+import Modifiers.IModifier;
+
 import java.util.List;
 import java.util.Vector;
 
 public class Soldier {
     String name;
-    Boolean attack_type; //0 - melee; 1 - ranged
-    int current_health;
-    int max_health;
-    int attack_points;
-    int defense_melee;
-    int defense_ranged;
+    String attack_type; //0 - melee; 1 - ranged
+    int CurrHp;
+    int MaxHP;
+    int Attack;
+    int MeleeDefense;
+    int RangeDefence;
     Vector<String> tags;
-    List<Modifier> modifiers;
+    List<IModifier> modifiers;
 
-    public Soldier(String name, int current_health, int attack_points, int defense_melee, int defense_ranged, Boolean attack_type) {
+    public Soldier(String name, int CurrHp, int Attack, int MeleeDefense, int RangeDefence, String attack_type) {
         this.name = name;
-        this.current_health = current_health;
-        this.max_health = current_health;
-        this.attack_points = attack_points;
-        this.defense_melee = defense_melee;
-        this.defense_ranged = defense_ranged;
+        this.CurrHp = CurrHp;
+        this.MaxHP = CurrHp;
+        this.Attack = Attack;
+        this.MeleeDefense = MeleeDefense;
+        this.RangeDefence = RangeDefence;
         this.attack_type = attack_type;
     }
 
-    void addModifier(Modifier modifier){
+    public void addModifier(IModifier modifier){
         //TODO after adding Modifier class
     }
+
+    Soldier chooseTarget(List<Soldier> enemies){
+        return null; //TODO
+    }
+
+    int getDamageAgainst(Soldier enemy){
+        return 0; //TODO
+    }
+
+    int getDamageFrom(Soldier enemy, int value, Boolean type){
+        return 0; //TODO
+    }
+
+    void receiveAttack(Soldier enemy, int value, Boolean type){
+        //TODO
+    }
+
     //TODO after adding Modifier fix getters
-    public int getCurrent_health() {
-        return current_health;
+    public int getCurrHp() {
+        return CurrHp;
     }
 
-    public int getMax_health() {
-        return max_health;
+    public int getMaxHP() {
+        return MaxHP;
     }
 
-    public int getAttack_points() {
-        return attack_points;
+    public int getAttack() {
+        return Attack;
     }
 
-    public int getDefense_melee() {
-        return defense_melee;
+    public int getMeleeDefense() {
+        return MeleeDefense;
     }
 
-    public int getDefense_ranged() {
-        return defense_ranged;
+    public int getRangeDefence() {
+        return RangeDefence;
     }
+
 
     @Override
     public String toString() {
         return name +
-                "   HP:" + current_health + "/" + max_health +
-                "   ATK:" + attack_points + //TODO add modifier attack
-                "   DEF:" + defense_melee + "/" + defense_ranged + //TODO add modifier defenses
+                "   HP:" + CurrHp + "/" + MaxHP +
+                "   ATK:" + Attack + //TODO add modifier attack
+                "   DEF:" + MeleeDefense + "/" + RangeDefence + //TODO add modifier defenses
                 "Modifiers:"; // TODO add modifier stats
     }
 }
